@@ -1,17 +1,21 @@
 # Apple Business API per PowerShell
 
-Sammlung von PowerShell-Referenzen, Beispielen und Best Practices für die Apple Business API. Das Repository ist bewusst nach fachlichen Themen getrennt, damit Blueprints, Geräte, Apps, MDM-Server und Audit-Log sauber voneinander gepflegt werden können.
+Strukturierte PowerShell-Referenz und Beispielsammlung für die Apple Business API. Das Repository ist bewusst nach funktionalen Bereichen aufgeteilt, damit Geräte, MDM, Benutzer, Apps, Blueprints und Audit-Log sauber getrennt und leicht wartbar bleiben.
 
-## Warum dieses Repository?
+## Warum diese Struktur?
 
-Dieses Projekt dient als strukturierte Referenz für Administratoren, IT-Architekten und PowerShell-Autoren, die mit der Apple Business API arbeiten. Es verbindet:
+Die Apple Business API ist groß und fachlich stark gegliedert. Deshalb liegt der Fokus dieses Repositories auf sauber getrennten Themenbereichen statt einer einzigen langen Datei:
 
-- die wichtigsten API-Endpunkte
-- PowerShell-Beispiele für `Connect-AppleBusiness` und `Invoke-AppleBusinessApi`
-- praktische Workflows für Geräte, MDM, Benutzer, Blueprints und Konfigurationen
-- separate Dokumente je Themenbereich statt einer großen, unübersichtlichen Datei
+- Getting Started
+- Devices
+- MDM
+- Users
+- Apps & Configurations
+- Blueprints
+- Audit
+- Recipes
 
-## Struktur
+## Repository-Struktur
 
 ```text
 Apple-Business-API/
@@ -26,22 +30,51 @@ Apple-Business-API/
 │   ├── 06-apps-pakete-und-konfigurationen.md
 │   ├── 07-blueprints.md
 │   ├── 08-audit-log.md
-│   └── 09-rezepte.md
+│   ├── 09-rezepte.md
+│   ├── getting-started/
+│   │   └── README.md
+│   ├── devices/
+│   │   └── README.md
+│   ├── mdm/
+│   │   └── README.md
+│   ├── users/
+│   │   └── README.md
+│   ├── apps/
+│   │   └── README.md
+│   ├── blueprints/
+│   │   └── README.md
+│   ├── audit/
+│   │   └── README.md
+│   └── recipes/
+│       └── README.md
 └── .gitignore
 ```
 
 ## Inhaltsverzeichnis
 
+### Start
 - [Repository-Übersicht](docs/00-overview.md)
-- [1. Schnellstart](docs/01-quickstart.md)
-- [2. API-Befehle und Grundlagen](docs/02-api-befehle-und-grundlagen.md)
-- [3. Geräte und AppleCare](docs/03-geraete-und-applecare.md)
-- [4. MDM-Server und Gerätezuweisung](docs/04-mdm-server-und-geraetezuweisung.md)
-- [5. Benutzer, Gruppen und Organisationseinheiten](docs/05-benutzer-gruppen-und-organisationseinheiten.md)
-- [6. Apps, Pakete und Konfigurationen](docs/06-apps-pakete-und-konfigurationen.md)
-- [7. Blueprints](docs/07-blueprints.md)
-- [8. Audit-Log](docs/08-audit-log.md)
-- [9. Rezepte](docs/09-rezepte.md)
+- [Schnellstart](docs/01-quickstart.md)
+- [API-Befehle und Grundlagen](docs/02-api-befehle-und-grundlagen.md)
+
+### Funktionale Bereiche
+- [Getting Started](docs/getting-started/README.md)
+- [Devices](docs/devices/README.md)
+- [MDM](docs/mdm/README.md)
+- [Users](docs/users/README.md)
+- [Apps & Configurations](docs/apps/README.md)
+- [Blueprints](docs/blueprints/README.md)
+- [Audit](docs/audit/README.md)
+- [Recipes](docs/recipes/README.md)
+
+### Original-Referenzen
+- [Geräte und AppleCare](docs/03-geraete-und-applecare.md)
+- [MDM-Server und Gerätezuweisung](docs/04-mdm-server-und-geraetezuweisung.md)
+- [Benutzer, Gruppen und Organisationseinheiten](docs/05-benutzer-gruppen-und-organisationseinheiten.md)
+- [Apps, Pakete und Konfigurationen](docs/06-apps-pakete-und-konfigurationen.md)
+- [Blueprints](docs/07-blueprints.md)
+- [Audit-Log](docs/08-audit-log.md)
+- [Rezepte](docs/09-rezepte.md)
 
 ## Schnellstart
 
@@ -64,16 +97,17 @@ Connect-AppleBusiness -ClientId <string> -KeyId <string> -SecretName <string> [-
 Invoke-AppleBusinessApi -Path <string> [-Method <Get|Post|Patch|Delete>] [-Body <object>]
 ```
 
-## Themenbereiche
+## Bereichsübersicht
 
-- Geräte und AppleCare
-- MDM-Server und Zuweisungen
-- Benutzer, Gruppen und Organisationseinheiten
-- Apps, Pakete und Konfigurationen
-- Blueprints
-- Audit-Log
-- Export-/Sicherungsrezepte
+- **Getting Started**: Anmeldung, erste Abfragen, Grundprinzipien
+- **Devices**: Gerätebestand, Seriennummern, AppleCare, Aktivierungssperre
+- **MDM**: Server, Gerätezuweisung, Aktivitäts-Status
+- **Users**: Benutzer, Gruppen, Organisationseinheiten
+- **Apps & Configurations**: App-Lizenzen, Pakete, mobileconfig-Profile
+- **Blueprints**: Zuweisungen von Geräten, Benutzern und Inhalten
+- **Audit**: Ereignisprotokolle und Filterung
+- **Recipes**: CSV- und JSON-Export, repeatable workflows
 
 ## Hinweis
 
-Die Inhalte basieren auf der Apple Business API-Befehlsreferenz aus dem Original-MD und wurden nach fachlichen Themen sortiert, damit das Repository leichter wartbar, verständlich und erweiterbar bleibt.
+Die Inhalte basieren auf der Apple Business API-Befehlsreferenz und wurden bewusst in funktionale Gruppen aufgeteilt, damit das Repository sauber, nachvollziehbar und für eine spätere Erweiterung vorbereitet ist.
