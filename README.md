@@ -15,6 +15,17 @@ Die Apple Business API ist groß und fachlich stark gegliedert. Deshalb liegt de
 - Audit
 - Recipes
 
+## Quick Links
+
+- [Repository Overview](docs/00-overview.md)
+- [Documentation Index](docs/README.md)
+- [Quickstart](docs/01-quickstart.md)
+- [Devices](docs/devices/README.md)
+- [MDM](docs/mdm/README.md)
+- [Blueprints](docs/blueprints/README.md)
+- [Audit Log](docs/audit/README.md)
+- [Recipes](docs/recipes/README.md)
+
 ## Repository-Struktur
 
 ```text
@@ -107,6 +118,14 @@ Invoke-AppleBusinessApi -Path <string> [-Method <Get|Post|Patch|Delete>] [-Body 
 - **Blueprints**: Zuweisungen von Geräten, Benutzern und Inhalten
 - **Audit**: Ereignisprotokolle und Filterung
 - **Recipes**: CSV- und JSON-Export, repeatable workflows
+
+## Beitrag und Pflege
+
+Beiträge, Korrekturen und neue Beispiele sind willkommen. Bitte halte dich an die vorhandene Gliederung und dokumentiere neue Inhalte in dem passenden Bereich.
+
+## Lizenz
+
+Dieses Projekt ist unter der MIT-Lizenz veröffentlicht. Siehe [LICENSE](LICENSE).
 
 ## Hinweis
 
