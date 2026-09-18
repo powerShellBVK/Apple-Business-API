@@ -1,9 +1,38 @@
 # Apple Business API per PowerShell
 
-Diese Sammlung dokumentiert die Apple Business API mit PowerShell-Beispielen und ist bewusst nach Themenbereichen aufgeteilt, statt alles in einer Datei zu verwalten.
+Sammlung von PowerShell-Referenzen, Beispielen und Best Practices für die Apple Business API. Das Repository ist bewusst nach fachlichen Themen getrennt, damit Blueprints, Geräte, Apps, MDM-Server und Audit-Log sauber voneinander gepflegt werden können.
+
+## Warum dieses Repository?
+
+Dieses Projekt dient als strukturierte Referenz für Administratoren, IT-Architekten und PowerShell-Autoren, die mit der Apple Business API arbeiten. Es verbindet:
+
+- die wichtigsten API-Endpunkte
+- PowerShell-Beispiele für `Connect-AppleBusiness` und `Invoke-AppleBusinessApi`
+- praktische Workflows für Geräte, MDM, Benutzer, Blueprints und Konfigurationen
+- separate Dokumente je Themenbereich statt einer großen, unübersichtlichen Datei
+
+## Struktur
+
+```text
+Apple-Business-API/
+├── README.md
+├── docs/
+│   ├── 00-overview.md
+│   ├── 01-quickstart.md
+│   ├── 02-api-befehle-und-grundlagen.md
+│   ├── 03-geraete-und-applecare.md
+│   ├── 04-mdm-server-und-geraetezuweisung.md
+│   ├── 05-benutzer-gruppen-und-organisationseinheiten.md
+│   ├── 06-apps-pakete-und-konfigurationen.md
+│   ├── 07-blueprints.md
+│   ├── 08-audit-log.md
+│   └── 09-rezepte.md
+└── .gitignore
+```
 
 ## Inhaltsverzeichnis
 
+- [Repository-Übersicht](docs/00-overview.md)
 - [1. Schnellstart](docs/01-quickstart.md)
 - [2. API-Befehle und Grundlagen](docs/02-api-befehle-und-grundlagen.md)
 - [3. Geräte und AppleCare](docs/03-geraete-und-applecare.md)
@@ -14,40 +43,37 @@ Diese Sammlung dokumentiert die Apple Business API mit PowerShell-Beispielen und
 - [8. Audit-Log](docs/08-audit-log.md)
 - [9. Rezepte](docs/09-rezepte.md)
 
-## Überblick
-
-Jede Sitzung beginnt mit `Connect-AppleBusiness`. Danach läuft jede Abfrage über `Invoke-AppleBusinessApi -Path '<Endpunkt>'`.
+## Schnellstart
 
 ```powershell
 Connect-AppleBusiness -Verbose
 Invoke-AppleBusinessApi -Path 'orgDevices'
 ```
 
-- PowerShell 7 (`pwsh`) direkt starten, nicht aus einem 5.1-Fenster heraus.
-- Adminrechte sind nicht nötig.
-- Anmeldung erfolgt über Client ID, Key ID und Secret-Name aus `$PROFILE`.
-- Token gilt 1 Stunde; das Modul erneuert es 60 Sekunden vor Ablauf und einmalig nach einem 401.
-- Basispfad: `https://api-business.apple.com/v1`
+Wichtige Punkte:
 
-## Wichtigste Befehle
+- PowerShell 7 (`pwsh`) verwenden
+- keine Adminrechte nötig
+- Token läuft nach 1 Stunde
+- Basis-URL: `https://api-business.apple.com/v1`
+
+## Zentrale Befehle
 
 ```powershell
 Connect-AppleBusiness -ClientId <string> -KeyId <string> -SecretName <string> [-Verbose]
 Invoke-AppleBusinessApi -Path <string> [-Method <Get|Post|Patch|Delete>] [-Body <object>]
 ```
 
-## Themenübersicht
+## Themenbereiche
 
-- [Schnellstart](docs/01-quickstart.md)
-- [API-Befehle und Abfrage-Grundlagen](docs/02-api-befehle-und-grundlagen.md)
-- [Geräte und AppleCare](docs/03-geraete-und-applecare.md)
-- [MDM-Server](docs/04-mdm-server-und-geraetezuweisung.md)
-- [Benutzer und Gruppen](docs/05-benutzer-gruppen-und-organisationseinheiten.md)
-- [Apps, Pakete, Konfigurationen](docs/06-apps-pakete-und-konfigurationen.md)
-- [Blueprints](docs/07-blueprints.md)
-- [Audit-Log](docs/08-audit-log.md)
-- [Rezepte](docs/09-rezepte.md)
+- Geräte und AppleCare
+- MDM-Server und Zuweisungen
+- Benutzer, Gruppen und Organisationseinheiten
+- Apps, Pakete und Konfigurationen
+- Blueprints
+- Audit-Log
+- Export-/Sicherungsrezepte
 
 ## Hinweis
 
-Die Inhalte basieren auf der Apple Business API-Befehlsreferenz aus dem Original-MD und wurden nach fachlichen Themen sortiert.
+Die Inhalte basieren auf der Apple Business API-Befehlsreferenz aus dem Original-MD und wurden nach fachlichen Themen sortiert, damit das Repository leichter wartbar, verständlich und erweiterbar bleibt.
